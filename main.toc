@@ -1,0 +1,6 @@
+\select@language {bengali}
+\contentsline {chapter}{\chapternumberline {১}ভূমিকা}{3}{chapter.1}
+\contentsline {chapter}{\chapternumberline {২}ম্যাট্রিক্স এক্সপোনেন্সিয়েশন}{5}{chapter.2}
+\contentsline {section}{\numberline {২.১}শুরুর কথা}{5}{section.2.1}
+\contentsline {section}{\numberline {২.২}ডাইনামিক প্রোগ্রামিং এর সাথে সম্পর্ক}{7}{section.2.2}
+\contentsline {section}{\numberline {২.৩}আরো কিছু উদাহরণ}{9}{section.2.3}
