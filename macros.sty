@@ -1,0 +1,26 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{macros}
+
+
+% Uses labels from file name
+\newcommand{\fig}[3]{
+	\begin{figure}[H] 
+		\centering 
+		\includegraphics[width=#1\textwidth]{#2.pdf} 
+		\caption{#3} 
+		\label{#2}
+	\end{figure}
+}
+
+
+% For modified labels
+\newcommand{\figl}[4]{
+	\begin{figure}[H] 
+		\centering 
+		\includegraphics[width=#1\textwidth]{#2.pdf} 
+		\caption{#3} 
+		\label{#4}
+	\end{figure}
+}
+
+

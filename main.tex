@@ -1,0 +1,57 @@
+% !TEX program = xelatex
+% !BIB program = bibtex
+\documentclass[statementpaper, 11pt, twoside, oldfontcommands]{memoir}
+\setulmarginsandblock{.8in}{.8in}{*}
+\setlrmarginsandblock{0.8in}{.8in}{*}
+
+\usepackage{pdfpages}
+\usepackage{afterpage}
+\usepackage{bookstyle_exp}
+
+\setfootins{\bigskipamount}{\bigskipamount}
+\setlength{\headsep}{13pt}
+
+% Header Footer Customization
+\copypagestyle{chapter}{plain}
+\makeoddfoot{chapter}{}{}{}
+\makeevenfoot{chapter}{}{}{}
+
+\addtopsmarks{headings}{}{
+	\createmark{chapter}{left}{nonumber}{}{}
+	\createmark{section}{right}{nonumber}{}{}
+}
+\pagestyle{headings} % activate changes
+
+\checkandfixthelayout
+\nonstopmode
+
+
+\title{\Huge\textbf{Title}}
+\author{Author}
+\date{}
+
+\titlespacing{\chapter}{0pt}{30pt}{20pt}  
+
+\begin{document}
+
+\mainmatter
+
+% \include{title}
+% \cleardoublepage
+% \include{titlepage}
+% \cleardoublepage 
+% \include{dedication}
+% \clearpage
+
+\tableofcontents*
+\include{chap/intro}
+
+% Include the chapters here
+
+% \backmatter
+
+% \nocite{*}
+% \bibliography{bookbib}
+% \bibliographystyle{plain}
+
+\end{document}

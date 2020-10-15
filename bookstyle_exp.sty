@@ -1,0 +1,209 @@
+% !TEX root = main.tex
+
+% Essential Packages
+\RequirePackage{graphicx}
+\RequirePackage[banglamainfont=Kalpurush,
+				banglattfont=Siyam Rupali,
+				feature=2]{latexbangla_exp}
+\RequirePackage[sort, square, numbers]{natbib}
+\RequirePackage{fontspec, xunicode, xcolor}
+\RequirePackage[colorlinks=false, 
+				bookmarksopen=true,
+				hidelinks]{hyperref}
+%\RequirePackage[margin=0.8cm]{caption}
+\RequirePackage{subcaption, float, longtable}
+\RequirePackage{bookmark}
+\RequirePackage{multicol}
+
+\usepackage{environments} % environments package
+\usepackage{macros} % macros
+
+
+
+\captionsetup[table]{name=সারণি}
+\addto\captionsbengali{\renewcommand{\bibname}{তথ্যবিবরণী}}
+\renewcommand{\bibname}{তথ্যবিবরণী}
+
+%% watermark
+%\RequirePackage{draftwatermark}
+%\SetWatermarkText{\upshape DRAFT}
+%\SetWatermarkFontSize{3cm}
+
+
+
+%something forgot what
+\tolerance=1
+\emergencystretch=\maxdimen
+\hyphenpenalty=10000
+\hbadness=10000
+
+
+%Footnote Rule
+\renewcommand*{\footnoterule}{%
+	\kern-3pt%
+	\hrule width \columnwidth
+	\kern 2.6pt
+}
+
+
+
+% Font Encoding
+\renewcommand\UrlFont{\fontencoding{OT1}\fontfamily{lmtt}\selectfont}
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{naturalnames}{hyperref}
+
+
+
+%%Old Fancy Pagestyle
+%\usepackage{fancyhdr}
+%\pagestyle{fancy}
+%\fancyhead[LE,RO]{\thepage}
+%\fancyhead[RE]{\leftmark}
+%\fancyhead[LO]{\rightmark}
+%\fancyfoot[CE,CO, RE, LO]{}
+%\fancyfoot[LE,RO]{}
+
+
+
+
+% Bengalikoron
+\newcommand\exampleautorefname{উদাহরণ}
+\appto{\blockextras@bengali}{%
+	\renewcommand*{\equationautorefname}{সমীকরণ}%
+}
+
+\renewcommand{\chapterautorefname}{অধ্যায়}
+\renewcommand{\sectionautorefname}{সেকশন}
+\newcommand{\problemautorefname}{প্রবলেম}
+\renewcommand{\subsectionautorefname}{সেকশন}
+\newcommand{\lemmaautorefname}{লেমা}
+
+\renewcommand\labelitemi{$\bullet$}
+\renewcommand\thechapter{\tobangla{chapter}}
+\renewcommand\thesection{\tobangla{section}}
+
+\counterwithin{problem}{chapter}
+\renewcommand{\theproblem}{\thechapter.\tobangla{problem}}
+\renewcommand{\thefigure}{\thechapter.\tobangla{figure}}
+%\renewcommand{\figureautorefname}{চিত্র}
+\renewcommand{\qedsymbol}{$\blacksquare$}
+
+\counterwithin{section}{chapter}
+\renewcommand{\thesection}{\thechapter.\tobangla{section}}
+\renewcommand{\thefigure}{\thechapter.\tobangla{figure}}
+\renewcommand{\thepage}{\upshape\tobangla{page}}
+
+%Since mainmatter resets \thefigure to \arabic
+\renewcommand{\thefigure}{\thechapter.\tobangla{figure}}
+
+
+
+
+
+%to take care of nonbreakingspace issue in EU1 format of the .bbl
+\DeclareTextCommandDefault{\nobreakspace}{\leavevmode\nobreak\ }
+
+
+
+
+
+%Paragraph formatting
+\setlength{\parskip}{10pt} % 1ex plus 0.5ex minus 0.2ex}
+\setlength{\parindent}{0pt}
+
+
+
+
+
+
+% Title Formatting
+
+\RequirePackage{titlesec}
+
+\titleformat{\section}[hang]
+	{\large\bfseries}
+	{
+		{\uccoff\fontfamily{lmr}\selectfont\large§\uccon}
+		\thesection
+	}{0.5em}{}
+
+\titleformat{\chapter}[display]
+	{\normalfont\normalsize\bfseries}
+	{\chaptertitlename\ \thechapter}
+	{-10pt}{\LARGE} 
+	
+\titlespacing*{\chapter}{0pt}{50pt}{20pt}
+\titlespacing*{\section}{0pt}{3.5ex plus 1ex minus .2ex}{1.3ex plus .2ex}
+
+
+
+
+
+
+
+% First Alphabet Big
+\RequirePackage{lettrine}
+\newcommand{\firstword}[2]{\lettrine[lraise=0.16, nindent=0pt, findent=2pt]{#1}{#2}}
+
+
+
+
+
+
+% TOC Formatting
+\RequirePackage{tocloft}
+\def\cftchapteraftersnum{.}
+\AtBeginDocument{\renewcommand\contentsname{সূচিপত্র}}
+
+
+\defaultfontfeatures{Ligatures=TeX}
+
+
+
+
+
+
+
+% newcommands
+\newcommand{\ndiv}{\hspace{-.5ex}\not|\hspace{.5ex}}
+%not div command
+\newcommand{\partof}{অংশবিশেষ}
+\newcommand{\simplified}{সরলীকৃত}
+\newcommand*{\perm}[2]{{}^{#1}\!P_{#2}}
+\newcommand*{\comb}[2]{{}^{#1}\!C_{#2}}
+\newcommand{\esc}[1]{\uccoff\fontfamily{lmr}\selectfont#1\uccon}
+% to allow escape sequence
+
+% counting continued commands
+\DeclareRobustCommand{\stirl}{\genfrac\{\}{0pt}{}}
+\DeclareRobustCommand{\dstirl}{\genfrac\{\}{0pt}{0}}
+
+
+
+
+
+
+% Footnotes
+\RequirePackage{footnote}
+\usepackage[hang,flushmargin]{footmisc}
+\makesavenoteenv{tabular}
+
+
+
+
+
+%no hyphenation
+\tolerance=1
+\emergencystretch=\maxdimen
+\hyphenpenalty=10000
+\hbadness=10000
+
+
+
+
+
+% dunno
+\RequirePackage{hhline}
+\newcommand{\qc}{%
+	\raisebox{2.5pt}{\includegraphics[height=8pt, angle=135]{img/listbullet01}}
+}

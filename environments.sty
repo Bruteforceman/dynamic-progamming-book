@@ -1,0 +1,404 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{environments}
+
+\RequirePackage[most]{tcolorbox}
+
+
+%to allow long align env. to break between pages
+
+\allowdisplaybreaks
+
+
+
+
+% Do it yourself box
+\newtcolorbox{diybox}{%
+	tikznode boxed title,
+	freelance,
+	breakable,
+	parbox=false,
+	arc=1mm,
+	left=6pt, right=6pt, bottom=4pt, top=12pt,
+	colframe=black,
+	colback=white,
+	boxrule=0.7pt,
+	interior style={white},
+	attach boxed title to top center= {yshift=-3.5mm},
+	fonttitle=\bfseries,
+	colbacktitle=white,coltitle=black,
+	%attach boxed title to top left={xshift=0.5cm, yshift=-3.5mm},
+	before skip=10pt plus 2pt,
+	title={{পড়া থামাও, নিজে চেষ্টা করো }}
+}
+
+
+
+
+% Diversion
+\newtcolorbox{diversion}{%
+	%tikznode boxed title,
+	freelance,
+	breakable,
+	parbox=false,
+	%arc=1mm,
+	left=6pt, right=6pt, bottom=4pt, top=12pt,
+	colframe=black,
+	toprule=0.7pt,
+	bottomrule=0.7pt,
+	colback=white,
+	%interior style={white},
+	attach boxed title to top center= {yshift=-\tcboxedtitleheight/2},
+	fonttitle=\bfseries,
+	colbacktitle=white,coltitle=black,
+	%boxed title style={size=normal,colframe=white,boxrule=0pt},
+	title={{একটু অন্যদিকে}},
+	before skip=10pt plus 2pt,
+	boxed title style={
+		size=fbox, 
+		colback=white, 
+		freelance,
+		boxrule=0.7pt,
+		colframe=black,
+		frame code={ 
+			\path[tcb fill frame] ([xshift=-2mm]frame.west) 
+			-- (frame.north west) 
+			-- (frame.north east) 
+			-- ([xshift=2mm]frame.east)
+			-- (frame.south east) 
+			-- (frame.south west) 
+			-- cycle; 
+		},
+		interior code={ 
+			\path[tcb fill interior] ([xshift=-2mm]interior.west)
+			-- (interior.north west) 
+			-- (interior.north east)
+			-- ([xshift=2mm]interior.east) 
+			-- (interior.south east) 
+			-- (interior.south west)
+			-- cycle;
+		}
+	}
+}
+
+
+
+
+%fancy theorem box
+\newtcolorbox{ttip}{
+	enhanced,
+	sharp corners=downhill,
+	left=6pt, right=6pt, bottom=4pt, top=8pt,
+	colback=black!02!white,
+	colframe=black!25!black,
+	coltext=black,
+	coltitle=black,
+	%fontupper=\Large\bfseries,
+	before skip=5pt plus 2pt,
+	arc=6mm,
+	boxrule=1mm,
+	boxsep=3mm,
+	borderline={0.3mm}{0.3mm}{white},
+	title={কীভাবে পড়ানো যেতে পারে?},
+	attach boxed title to top left={xshift=0.5cm, yshift=-3.85mm},
+	boxed title style={
+		size=fbox, 
+		colback=black!10!white, 
+		freelance,
+		boxrule=1.2pt,
+		colframe=black,
+		frame code={ 
+			\path[tcb fill frame] ([xshift=-2mm]frame.west) 
+			-- (frame.north west) 
+			-- (frame.north east) 
+			-- ([xshift=2mm]frame.east)
+			-- (frame.south east) 
+			-- (frame.south west) 
+			-- cycle; 
+		},
+		interior code={ 
+			\path[tcb fill interior] ([xshift=-2mm]interior.west)
+			-- (interior.north west) 
+			-- (interior.north east)
+			-- ([xshift=2mm]interior.east) 
+			-- (interior.south east) 
+			-- (interior.south west)
+			-- cycle;
+		}
+	}
+}
+
+
+
+% Example
+\newcounter{example}[chapter]
+\newtcolorbox[use counter=example, number freestyle={\noexpand\thechapter.\noexpand\tobangla{\tcbcounter}}]{example}[1][]{
+	colback=white,
+	colframe=black,%gray!80,
+	fonttitle=\bfseries,
+	%leftrule=3mm,rightrule=3mm,toprule=2pt,bottomrule=2pt,
+	colbacktitle=white,%gray!40,
+	arc=2mm,
+	top=10pt, left=6pt, right=6pt, bottom=5pt,
+	coltitle=black,
+	boxrule=0.7pt,
+	freelance,
+	breakable,
+	before skip=10pt plus 2pt,
+	%before title={\refstepcounter{example}\label{example-\theexample}},
+	attach boxed title to top left={
+		yshift=-9pt,
+		xshift=0.15in
+	},
+	boxed title style={
+		size=fbox, 
+		boxrule=1pt, 
+		colframe=black, 
+		arc=1mm
+	},
+	title={উদাহরণ \thetcbcounter},
+	#1
+}
+
+
+
+\iffalse
+% Old Solution
+\newtcolorbox{solution}[1][]{
+	skin=enhancedlast,
+	breakable,
+	frame empty,
+	interior empty,
+	left=10pt, right=0pt, bottom=4pt, top=8pt,
+	colframe=white,
+	coltitle=black!50!black,
+	fonttitle=\bfseries,
+	colbacktitle=black!5!white,
+	colback=white,
+	%borderline={0.5mm}{0mm}{white},
+	%attach boxed title to top center={yshift=-2mm},
+	boxed title style={boxrule=0.4pt},
+	varwidth boxed title,
+	title={সমাধান},
+	after upper={\hfill$\qed$}
+}
+\fi
+
+
+
+
+% Lemma
+\newtcolorbox{lemma}[1][]{
+	skin=bicolor,
+	breakable,
+	frame empty,
+	interior empty,
+	colframe=black!50!white,
+	colback=black!1!white,
+	colbacklower=black!.3!white,
+	coltitle=black!50!black,
+	fonttitle=\bfseries,
+	fontupper=\itshape,
+	colbacktitle=black!5!white,
+	borderline={0.1mm}{0mm}{white},
+	%attach boxed title to top center={yshift=-2mm},
+	boxed title style={boxrule=0.4pt},
+	varwidth boxed title,
+	title={লেমা}  
+}
+
+
+
+
+% Important Box
+\newtcolorbox{impbox}{
+	skin=enhanced,
+	left=20pt, right=20pt, bottom=4pt, top=8pt,
+	colframe=white,
+	colback=white,
+	fontupper=\itshape,
+	title empty
+}
+
+
+
+\newtcolorbox{class_fun}[2][]{
+	breakable,
+	frame empty,
+	interior empty,
+	colframe=black!50!white,
+	colback=black!1!white,
+	colbacklower=black!.3!white,
+	coltitle=black!50!black,
+	fonttitle=\bfseries\itshape,
+%	fontupper=\itshape,
+	colbacktitle=black!5!white,
+	borderline={0.1mm}{0mm}{white},
+	%attach boxed title to top center={yshift=-2mm},
+	boxed title style={boxrule=0.4pt},
+	varwidth boxed title,
+	title={#2}  
+}
+
+
+
+
+% Chapter Quote
+
+\newfontfamily\quotefont[%
+	Scale= 1.1,
+	WordSpace=1.4,
+	AutoFakeSlant=1.2,
+	AutoFakeBold=1.2
+]{[Monotype Corsiva]}
+
+\newenvironment{chapquote}[2][2em]{
+	\setlength{\@tempdima}{#1}%
+	\def\chapquote@author{#2}%
+	\parshape 1 \@tempdima \dimexpr\textwidth-2\@tempdima\relax%
+	\uccoff\quotefont
+}{\uccon\par\normalfont\hfill--\ \chapquote@author\hspace*{\@tempdima}\par\smallskip}
+
+
+
+
+
+% Old Quote
+\def\signed #1{{\leavevmode\unskip\nobreak\hfil\penalty50\hskip2em
+
+		\hbox{}\nobreak\hfil-#1%
+
+		\parfillskip=0pt \finalhyphendemerits=0 \endgraf}}
+
+
+\newsavebox\mybox
+
+\def\signed #1{{\leavevmode\unskip\nobreak\hfil\penalty50\hskip2em
+
+		\hbox{}\nobreak\hfil-#1%
+
+		\parfillskip=0pt \finalhyphendemerits=0 \endgraf}}
+
+\newenvironment{cquote}[1]
+	{\savebox\mybox{#1}\begin{quote}}
+	{\signed{\usebox\mybox}\end{quote}}
+
+
+
+
+% Environments 
+\newtheoremstyle{custom2}% name
+				{10pt}% space above
+				{3pt}% space below
+				{\rm}% body font
+				{}% indent amount
+				{\bfseries}% theorem head font
+				{:}% punctuation after theorem head
+				{.5em}% space after theorem head
+				{\thmname{#1}\thmnumber{ \bfseries#2}\thmnote{ (#3)}}% theorem head spec
+				
+\theoremstyle{custom2}
+\newtheorem{problem}{\bfseries সমস্যা}
+\newtheorem*{remark}{\bfseries মন্তব্য}
+%a new partial solution environment
+\newenvironment{partsol}[1][আংশিক সমাধান]{\proof[\itshape #1]}{}
+
+
+% \newtheorem*{lemma}{\bfseries লেমা}
+% \newtheorem{theorem}{\bfseries উপপাদ্য}
+% \counterwithin{theorem}{chapter}
+% \renewcommand{\thetheorem}{\thechapter.\tobangla{theorem}}
+
+
+
+
+
+
+
+%noindlist
+\newcounter{noindlistcounter}
+\newenvironment{noindlist}
+{\begin{list}{\qc\;\;}{\labelsep=0em \labelwidth=2em \itemindent=0em \leftmargin=1.5em}}
+	{\end{list}}
+
+
+
+
+
+% exercise :?
+\newcounter{exercisecounter}
+\counterwithin{exercisecounter}{chapter}
+\newenvironment{exercise}
+{\begin{list}{\textbf{প্রবলেম \thechapter.\tobangla{exercisecounter}:~}}{\usecounter{exercisecounter} \labelsep=0em \labelwidth=0em \leftmargin=0em \itemindent=0em}}
+	{\end{list}}
+
+%fix to not have to replace all the exercise envs, not robust
+\renewcommand{\itemautorefname}{প্রবলেম}
+\renewcommand{\theexercisecounter}{\tobangla{exercisecounter}}
+
+
+
+
+
+
+
+
+% puzzle
+\newtcbtheorem{puzzle}{}{
+	boxrule=.7pt,
+	lower separated=false,
+	colback=white!95!gray,
+	colframe=black, 
+	fonttitle=\bfseries,
+	coltitle=black,
+	detach title,
+	before upper={
+		\tcbtitle
+		\quad},
+	sharp corners,
+	title={#1},
+	separator sign={},
+	top=5pt, bottom=5pt, left=5pt, right=5pt,
+	before upper={\parindent0pt},
+}{puz}
+
+\newtcbtheorem{puzzle_exc}{}{
+	boxrule=0pt,
+	lower separated=false,
+	colback=white,
+	colframe=black, 
+	fonttitle=\bfseries,
+	coltitle=black,
+	colbacktitle=white!95!black,
+	before upper={
+		\tcbtitle
+		\quad},
+	sharp corners,
+	title={#1},
+	separator sign={},
+	top=5pt, bottom=5pt, left=5pt, right=5pt,
+	before upper={\parindent0pt},
+	breakable,
+}{puz_exc}
+
+
+\newtcbtheorem{game}{}{
+	boxrule=2pt,
+	lower separated=false,
+	colback=white!95!gray,
+	colframe=black, 
+	fonttitle=\bfseries,
+	coltitle=black,
+	detach title,
+	before upper={
+		\tcbtitle
+		\quad},
+	sharp corners,
+	title={#1},
+	separator sign={},
+	top=5pt, bottom=5pt, left=5pt, right=5pt,
+	before upper={\parindent0pt},
+}{gam}
+
+
+
+\renewcommand{\theexercisecounter}{\tobangla{exercisecounter}}
