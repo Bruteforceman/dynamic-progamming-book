@@ -8,6 +8,13 @@
 \usepackage{afterpage}
 \usepackage{bookstyle_exp}
 
+% Hints config
+
+\usepackage{answers}
+\Newassociation{hint}{Hint}{hint_ostream}
+
+%%%
+
 \setfootins{\bigskipamount}{\bigskipamount}
 \setlength{\headsep}{13pt}
 
@@ -49,6 +56,8 @@
 % \include{dedication}
 % \clearpage
 
+\Opensolutionfile{hint_ostream}[hints]
+
 \tableofcontents*
 \include{chap/intro}
 \include{chap/mat-expo}
@@ -56,6 +65,11 @@
 \include{chap/barricades}
 \include{chap/exchange-arg}
 % Include the chapters here
+
+\Closesolutionfile{hint_ostream}
+
+\part{বাছাইকৃত কিছু সমস্যার হিন্ট সমূহ}
+\input{hints}
 
 % \backmatter
 

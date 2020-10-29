@@ -1,0 +1,3 @@
+in contains a random bracket sequence (found after 69 tries)
+run python plot_bracket_sequence_graph.py in and this will create output.svg
+edited with inkscape
