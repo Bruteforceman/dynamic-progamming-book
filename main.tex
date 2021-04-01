@@ -1,37 +1,84 @@
-% !TEX program = xelatex
-% !BIB program = bibtex
-\documentclass[statementpaper, 11pt, twoside, oldfontcommands]{memoir}
-\setulmarginsandblock{.8in}{.8in}{*}
-\setlrmarginsandblock{0.8in}{.8in}{*}
+\documentclass[twoside,12pt,a4paper]{book}
 
-\usepackage{pdfpages}
-\usepackage{afterpage}
-\usepackage{bookstyle_exp}
-\usepackage{xcolor,colortbl}
+\usepackage[a4paper,vmargin=30mm,hmargin=33mm,footskip=15mm]{geometry}
+
+\usepackage[utf8]{inputenc}
+
+\usepackage{polyglossia}
+
+\setmainlanguage[numerals=Bengali,changecounternumbering=true]{bengali}
+\newfontfamily\bengalifont[Script=Bengali, Scale=0.9, NFSSFamily=bmfont, WordSpace=1.5, AutoFakeSlant, AutoFakeBold]{SolaimanLipi}
+\newenvironment{latin}{\fontencoding{OT1}\ifx\f@family\btt@@name\fontfamily{lmtt}\else\fontfamily{lmr}\fi\selectfont}\relax
+\RequirePackage[Latin, Bengali, Devanagari]{ucharclasses}\setTransitionsForLatin{\begin{latin}}{\end{latin}}
+\newfontfamily\bengalifonttt{SolaimanLipi}
+
+% \usepackage[english]{babel}
+\usepackage{listings}
+\usepackage[table]{xcolor}
+\usepackage{tikz}
+\usepackage{multicol}
+\usepackage{hyperref}
 \usepackage{array}
+% \usepackage{microtype}
+
+% \usepackage{fouriernc}
+% \usepackage[T1]{fontenc}
+
+\usepackage{graphicx}
+\usepackage{framed}
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+% \usepackage{pifont}
+\usepackage{ifthen}
+\usepackage{makeidx}
+\usepackage{enumitem}
+
+\usepackage{titlesec}
+
+% \usepackage{skak}
+\usepackage[scaled=0.95]{inconsolata}
+
+\pagestyle{plain}
+
+% \usepackage{pdfpages}
+% \usepackage{afterpage}
+% \usepackage{bookstyle_exp}
+% \usepackage{xcolor,colortbl}
+% \usepackage{array}
+
 % Hints config
 
 \usepackage{answers}
 \Newassociation{hint}{Hint}{hint_ostream}
 
-%%%
+% Code formatting
 
-\setfootins{\bigskipamount}{\bigskipamount}
-\setlength{\headsep}{13pt}
+% \definecolor{keywords}{HTML}{44548A}
+% \definecolor{strings}{HTML}{00999A}
+% \definecolor{comments}{HTML}{990000}
 
-% Header Footer Customization
-\copypagestyle{chapter}{plain}
-\makeoddfoot{chapter}{}{}{}
-\makeevenfoot{chapter}{}{}{}
-
-\addtopsmarks{headings}{}{
-	\createmark{chapter}{left}{nonumber}{}{}
-	\createmark{section}{right}{nonumber}{}{}
+\lstset{
+	language=C++,
+	frame=none,
+	basicstyle=\ttfamily \small,
+	commentstyle=\normalfont \itshape,
+	showstringspaces=false,
+	columns=flexible
 }
-\pagestyle{headings} % activate changes
+\lstset{literate={^}{\caret}{1} {~}{\tilde}{1}}
 
-\checkandfixthelayout
-\nonstopmode
+\lstset{xleftmargin=5pt,xrightmargin=5pt}
+\lstset{aboveskip=8pt,belowskip=6pt}
+
+% \lstset{
+%     commentstyle=\color{comments},
+%     keywordstyle=\color{keywords},
+%     stringstyle=\color{strings}
+% }
+
+\newcommand{\caret}{\textasciicircum} % usage \caret for ^
+\newcommand{\ntilde}{\raise.17ex\hbox{$\scriptstyle\mathtt{\sim}$}} % failed to make \renewcommand*{\tilde} work :(, so gotta use this atm
 
 % Macros
 
@@ -39,27 +86,85 @@
 
 %%%
 
+\title{\Huge ডাইনামিক প্রোগ্রামিং এ হাতেখড়ি}
+\author{\Large তাসমীম রেজা \\ \Large মামনুন সিয়াম}
+\date{Draft \today}
 
-\title{\Huge\textbf{Title}}
-\author{Author}
-\date{}
+\newenvironment{solution}{\noindent \textit{সমাধান।}}{}
+\newenvironment{diybox}{\textbf{নিজে করোঃ}}{}
 
-\titlespacing{\chapter}{0pt}{30pt}{20pt}  
+\usepackage{amsthm}
+% \usepackage{thmtools}
+
+\theoremstyle{definition}
+\newtheorem{theorem}{উপপাদ্য}[section]
+\theoremstyle{definition}
+\newtheorem*{theorem*}{উপপাদ্য}
+
+\theoremstyle{definition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem*{corollary*}{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{lemma}[theorem]{লেমা}
+\theoremstyle{definition}
+\newtheorem*{lemma*}{লেমা}
+
+\theoremstyle{definition}
+\newtheorem{proposition}[theorem]{Proposition}
+\theoremstyle{definition}
+\newtheorem*{proposition*}{Proposition}
+
+\theoremstyle{definition}
+\newtheorem{claim}[theorem]{Claim}
+\theoremstyle{definition}
+\newtheorem*{claim*}{Claim}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{সংজ্ঞা}
+\theoremstyle{definition}
+\newtheorem*{definition*}{সংজ্ঞা}
+
+\theoremstyle{definition}
+\newtheorem{problem}{প্রবলেম}[section]
+\theoremstyle{definition}
+\newtheorem*{problem*}{প্রবলেম}
+
+\theoremstyle{definition}
+\newtheorem{exercise}{অনুশীলনী}[section]
+\theoremstyle{definition}
+\newtheorem*{exercise*}{অনুশীলনী}
+
+\theoremstyle{definition}
+\newtheorem{example}{উদাহরণ}[section]
+\theoremstyle{definition}
+\newtheorem*{example*}{উদাহরণ}
+
+\newtheorem*{note*}{Note}
 
 \begin{document}
 
+\frontmatter
+\maketitle
+% \setcounter{tocdepth}{2}
+% \tableofcontents
+
 \mainmatter
+% \setcounter{page}{1}
 
 % \include{title}
 % \cleardoublepage
 % \include{titlepage}
-% \cleardoublepage 
+% \cleardoublepage
 % \include{dedication}
 % \clearpage
 
 \Opensolutionfile{hint_ostream}[hints]
 
-\tableofcontents*
+% \tableofcontents*
+% \include{chap/intro}
+\include{chap/bruteforce}
 \include{chap/mat-expo}
 \include{chap/knapsack}
 \include{chap/barricades}
