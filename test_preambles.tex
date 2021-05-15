@@ -1,6 +1,15 @@
+% This is the common preambles for doing any type of tests
+% e.g. tinkering a tikz code (for example, see
+% ./img/matrix-chain/perfect-bin-trees-with-5-leaves/test.tex)
+% you can just start by doing:
+% \input{path/to/test_preambles.tex}
+% \begin{document}
+% 	% your test codes
+% \end{document}
+
 \documentclass[twoside,12pt,a4paper]{book}
 
-\usepackage[a4paper,vmargin=30mm,hmargin=33mm,footskip=15mm]{geometry}
+\usepackage[a4paper,vmargin=30mm,hmargin=33mm,footskip=15mm,showframe]{geometry}
 
 \usepackage[utf8]{inputenc}
 
@@ -60,12 +69,12 @@
 % \definecolor{comments}{HTML}{990000}
 
 \lstset{
-	language=C++,
-	frame=none,
-	basicstyle=\ttfamily \small,
-	commentstyle=\normalfont \itshape,
-	showstringspaces=false,
-	columns=flexible
+  language=C++,
+  frame=none,
+  basicstyle=\ttfamily \small,
+  commentstyle=\normalfont \itshape,
+  showstringspaces=false,
+  columns=flexible
 }
 \lstset{literate={^}{\caret}{1} {~}{\tilde}{1}}
 
@@ -88,8 +97,6 @@
 \newcommand{\pbra}[1]{\left ( #1 \right )} % p for parentheses
 \newcommand{\floor}[1]{\left \lfloor #1 \right \rfloor}
 \newcommand{\ceil}[1]{\left \lceil #1 \right \rceil}
-\newcommand{\two}[2]{[#1, #2]}
-\newcommand{\DP}{\text{dp}}
 \let\emptyset\varnothing % original emptyset is ugly
 
 %%%
@@ -150,47 +157,3 @@
 \newtheorem*{example*}{উদাহরণ}
 
 \newtheorem*{note*}{Note}
-
-\begin{document}
-
-\frontmatter
-\maketitle
-% \setcounter{tocdepth}{2}
-% \tableofcontents
-
-\mainmatter
-% \setcounter{page}{1}
-
-% \include{title}
-% \cleardoublepage
-% \include{titlepage}
-% \cleardoublepage
-% \include{dedication}
-% \clearpage
-
-\Opensolutionfile{hint_ostream}[hints]
-
-% \tableofcontents*
-% \include{chap/intro}
-\include{chap/bruteforce}
-\include{chap/mat-expo}
-\include{chap/knapsack}
-\include{chap/barricades}
-\include{chap/exchange-arg}
-\include{chap/poly-interpole}
-\include{chap/digit-dp}
-\include{chap/matrix-chain}
-% Include the chapters here
-
-\Closesolutionfile{hint_ostream}
-
-\part{বাছাইকৃত কিছু সমস্যার হিন্ট সমূহ}
-\input{hints}
-
-% \backmatter
-
-% \nocite{*}
-% \bibliography{bookbib}
-% \bibliographystyle{plain}
-
-\end{document}
