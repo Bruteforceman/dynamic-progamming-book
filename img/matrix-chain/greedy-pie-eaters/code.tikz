@@ -1,0 +1,32 @@
+\begin{tikzpicture}[scale=0.75]
+  \draw[draw=none,fill=lightgray] (2, 4) rectangle (3, 5);
+  \draw[draw=none,fill=lightgray] (8, 4) rectangle (10, 5);
+  \draw[draw=none,fill=lightgray] (12, 4) rectangle (13, 5);
+  \draw[draw=none,fill=lightgray] (5.5, 1) rectangle (9.5, 2);
+  \draw (5.5, 1) rectangle (9.5, 2);
+  \draw (6.5, 1) -- (6.5, 2);
+  % \draw (7.5, 1) -- (7.5, 2);
+  \draw (8.5, 1) -- (8.5, 2);
+  \draw (0, 4) rectangle (15, 5);
+  \draw (2, 4) -- (2, 5);
+  \draw (3, 4) -- (3, 5);
+  \draw (8, 4) -- (8, 5);
+  \draw (10, 4) -- (10, 5);
+  \draw (12, 4) -- (12, 5);
+  \draw (13, 4) -- (13, 5);
+  \node at (0.4, 4.5) {$l_1$};
+  \node at (1.6, 4.5) {$r_1$};
+  \node at (3.4, 4.5) {$l_2$};
+  \node at (10.4, 4.5) {$l_3$};
+  \node at (13.4, 4.5) {$l_4$};
+  \node at (7.6, 4.5) {$r_2$};
+  \node at (11.6, 4.5) {$r_3$};
+  \node at (14.6, 4.5) {$r_4$};
+  \node at (1, 4.5) {$\dots$};
+  \node at (5.5, 4.5) {$\dots$};
+  \node at (11, 4.5) {$\dots$};
+  \node at (14, 4.5) {$\dots$};
+  \draw[<-, thick, dashed] (5.3, 1.5) to [out=170,in=-60] (2.5, 3.8);
+  \draw[<-, thick, dashed] (7.5, 2.2) -- (9, 3.8);
+  \draw[<-, thick, dashed] (9.7, 1.5) to [out=20,in=-110] (12.5, 3.8);
+\end{tikzpicture}
