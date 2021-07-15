@@ -1,4 +1,4 @@
-\begin{tikzpicture}[scale=0.9]
+\begin{tikzpicture}[scale=0.8]
   \node[scale=0.8] (536) at (-6.625000,-2.750000) {$\mathsf{A}$};
   \node[scale=0.8] (537) at (-6.125000,-2.750000) {$\mathsf{B}$};
   \node[scale=0.8] (535) at (-6.375000,-2.000000) {$\mathsf{AB}$};
