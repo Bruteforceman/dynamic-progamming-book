@@ -4,13 +4,14 @@
 
 \usepackage[utf8]{inputenc}
 
-\usepackage{polyglossia}
+\usepackage[banglamainfont=SolaimanLipi, banglattfont=Siyam Rupali, feature=2]{latexbangla_exp}
 
-\setmainlanguage[numerals=Bengali,changecounternumbering=true]{bengali}
-\newfontfamily\bengalifont[Script=Bengali, Scale=0.9, NFSSFamily=bmfont, WordSpace=1.5, AutoFakeSlant, AutoFakeBold]{SolaimanLipi}
-\newenvironment{latin}{\fontencoding{OT1}\ifx\f@family\btt@@name\fontfamily{lmtt}\else\fontfamily{lmr}\fi\selectfont}\relax
-\RequirePackage[Latin, Bengali, Devanagari]{ucharclasses}\setTransitionsForLatin{\begin{latin}}{\end{latin}}
-\newfontfamily\bengalifonttt{SolaimanLipi}
+% \usepackage{polyglossia}
+% \setmainlanguage[numerals=Bengali,changecounternumbering=true]{bengali}
+% \newfontfamily\bengalifont[Script=Bengali, Scale=0.9, NFSSFamily=bmfont, WordSpace=1.5, AutoFakeSlant, AutoFakeBold]{SolaimanLipi}
+% \newenvironment{latin}{\fontencoding{OT1}\ifx\f@family\btt@@name\fontfamily{lmtt}\else\fontfamily{lmr}\fi\selectfont}\relax
+% \RequirePackage[Latin, Bengali, Devanagari]{ucharclasses}\setTransitionsForLatin{\begin{latin}}{\end{latin}}
+% \newfontfamily\bengalifonttt{SolaimanLipi}
 
 % \usepackage[english]{babel}
 \usepackage{listings}
@@ -42,7 +43,7 @@
 \usepackage[ruled,vlined]{algorithm2e}
 
 % \usepackage{skak}
-\usepackage[scaled=0.95]{inconsolata}
+% \usepackage[scaled=0.95]{inconsolata}
 
 \pagestyle{plain}
 
@@ -51,6 +52,14 @@
 % \usepackage{bookstyle_exp}
 % \usepackage{xcolor,colortbl}
 % \usepackage{array}
+
+\setlength{\fboxsep}{-\fboxrule} % was includede for testing
+% \newcommand{\caret}{\raise0ex\hbox{\scalebox{1}{\textasciicircum}}} % usage \caret for ^
+\newcommand*{\caret}{\texttt{\begingroup\fontencoding{T1}\fontfamily{pcr}\selectfont\string^\endgroup}}
+% idk wtf am i doing T.T seemes like ^this is working
+\newcommand{\ntilde}{\raise.17em\hbox{$\scriptstyle{\sim}$}}
+% \renewcommand{\tilde}{\raise.17ex\hbox{$\scriptstyle{\sim}$}}
+% failed to make \renewcommand*{\tilde} work :(, so gotta use this atm
 
 % Hints config
 
@@ -64,16 +73,18 @@
 % \definecolor{comments}{HTML}{990000}
 
 \lstset{
-	language=C++,
-	frame=none,
-	basicstyle=\ttfamily \small,
-	commentstyle=\normalfont \itshape,
-	showstringspaces=false,
-	columns=flexible
+  language=C++,
+  frame=single,
+  basicstyle=\ttfamily\small,
+  % commentstyle=\ttfamily\itshape\color{gray},
+  commentstyle=\ttfamily\color{gray},
+  showstringspaces=false,
+  breaklines=true
+  % columns=flexible
 }
-\lstset{literate={^}{\caret}{1} {~}{\tilde}{1}}
+\lstset{literate={^}{$\caret$}{1} {~}{$\ntilde$}{1} {-}{-}{1}}
 
-\lstset{xleftmargin=5pt,xrightmargin=5pt}
+\lstset{xleftmargin=3pt,xrightmargin=3pt}
 \lstset{aboveskip=8pt,belowskip=6pt}
 
 % \lstset{
@@ -82,29 +93,30 @@
 %     stringstyle=\color{strings}
 % }
 
-\newcommand{\caret}{\textasciicircum} % usage \caret for ^
-\newcommand{\ntilde}{\raise.17ex\hbox{$\scriptstyle\mathtt{\sim}$}} % failed to make \renewcommand*{\tilde} work :(, so gotta use this atm
-
 % Macros
 
-\newcommand{\cbra}[1]{\left \{ #1 \right \}} % c for curly bracket
+\newcommand{\cbra}[1]{\left \{ #1 \right \}} % c for curly braces
 \newcommand{\bbra}[1]{\left [ #1 \right ]} % b for boxed bracket
 \newcommand{\pbra}[1]{\left ( #1 \right )} % p for parentheses
 \newcommand{\floor}[1]{\left \lfloor #1 \right \rfloor}
 \newcommand{\ceil}[1]{\left \lceil #1 \right \rceil}
+\newcommand{\one}[1]{[#1]}
 \newcommand{\two}[2]{[#1, #2]}
 \newcommand{\three}[3]{[#1, #2, #3]}
 \newcommand{\four}[4]{[#1, #2, #3, #4]}
 \newcommand{\DP}{\text{dp}}
+\newcommand{\SOSfn}{\texttt{SOS}}
+\newcommand{\compl}[1]{\overline{#1}}
 \let\emptyset\varnothing % original emptyset is ugly
 
 %%%
 
 \title{\Huge ডাইনামিক প্রোগ্রামিং এ হাতেখড়ি}
 \author{\Large তাসমীম রেজা \\ \Large মামনুন সিয়াম}
-\date{Draft \today}
+\date{ড্রাফ্‌ট \today}
 
-\newenvironment{solution}{\noindent \textit{সমাধান।}}{}
+% already has in latexbangla_exp
+% \newenvironment{solution}{\noindent \textit{সমাধান।}}{}
 \newenvironment{diybox}{\textbf{নিজে করোঃ}}{}
 
 \usepackage{amsthm}
@@ -186,6 +198,7 @@
 \include{chap/poly-interpole}
 \include{chap/digit-dp}
 \include{chap/matrix-chain}
+\include{chap/sos-dp}
 % Include the chapters here
 
 \Closesolutionfile{hint_ostream}
