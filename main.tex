@@ -39,6 +39,9 @@
 \usepackage{titlesec}
 
 \usepackage{mathtools}
+\usepackage{tcolorbox}
+
+% \usepackage{MnSymbol}
 
 \usepackage[ruled,vlined]{algorithm2e}
 
@@ -107,7 +110,40 @@
 \newcommand{\DP}{\text{dp}}
 \newcommand{\SOSfn}{\texttt{SOS}}
 \newcommand{\compl}[1]{\overline{#1}}
+\newcommand{\ora}[1]{\overrightarrow{#1}}
+\newcommand{\abs}[1]{\left| #1 \right|}
 \let\emptyset\varnothing % original emptyset is ugly
+
+\newcommand{\downmapsto}{\rotatebox[origin=c]{-90}{$\mapsto$}\mkern3mu}
+% \rotatebox[origin=c]{-90}{$\xrightarrow{\rotatebox[origin=c]{90}{$-\hat{f}_{\{0,2,3\}}$}}$}
+
+% envs for lemma, observation, theorem(?), reducedproblem
+
+\tcbuselibrary{breakable}
+\tcbuselibrary{skins}
+\newenvironment{reducedproblem}{%
+  \begin{tcolorbox}[%
+    breakable,%
+    enhanced,%
+    colback=white,%
+    left skip=0pt,%
+    right skip=0pt%
+  ]%
+}{%
+\end{tcolorbox}%
+}
+\newenvironment{bigcondition}{%
+  \begin{tcolorbox}[%
+    breakable,%
+    enhanced,%
+    colback=white,%
+    left skip=0pt,%
+    right skip=0pt%
+  ]%
+}{%
+\end{tcolorbox}%
+}
+
 
 %%%
 
@@ -123,51 +159,66 @@
 % \usepackage{thmtools}
 
 \theoremstyle{definition}
-\newtheorem{theorem}{উপপাদ্য}[section]
+\newtheorem{theorem}{উপপাদ্য}[chapter]
 \theoremstyle{definition}
 \newtheorem*{theorem*}{উপপাদ্য}
 
 \theoremstyle{definition}
-\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{corollary}[theorem]{Corollary} % wait, no, make this a child of theorem?
 \theoremstyle{definition}
 \newtheorem*{corollary*}{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{proposition}[theorem]{Proposition} % wait, no, make this a child of theorem?
+\theoremstyle{definition}
+\newtheorem*{proposition*}{Proposition}
+
+\theoremstyle{definition}
+\newtheorem{claim}[theorem]{Claim} % wait, no, make this a child of theorem?
+\theoremstyle{definition}
+\newtheorem*{claim*}{Claim}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{সংজ্ঞা} % wait, no, make this a child of theorem?
+\theoremstyle{definition}
+\newtheorem*{definition*}{সংজ্ঞা}
+
+\theoremstyle{definition}
+\newtheorem{problem}{প্রবলেম}[chapter] % this is depricated
+\theoremstyle{definition}
+\newtheorem*{problem*}{প্রবলেম}
+
+\theoremstyle{definition}
+\newtheorem{exercise}{অনুশীলনী}[chapter]
+\theoremstyle{definition}
+\newtheorem*{exercise*}{অনুশীলনী}
+
+\theoremstyle{definition}
+\newtheorem{example}{উদাহরণ}[chapter]
+\theoremstyle{definition}
+\newtheorem*{example*}{উদাহরণ}
+
+\theoremstyle{definition}
+\newtheorem{observation}{অবজারভেশন}[example]
+\theoremstyle{definition}
+\newtheorem*{observation*}{অবজারভেশন}
+
+\theoremstyle{definition}
+\newtheorem{optimization}{অপটিমাইজেশন}[example]
+\theoremstyle{definition}
+\newtheorem*{optimization*}{অপটিমাইজেশন}
 
 \theoremstyle{definition}
 \newtheorem{lemma}[theorem]{লেমা}
 \theoremstyle{definition}
 \newtheorem*{lemma*}{লেমা}
 
-\theoremstyle{definition}
-\newtheorem{proposition}[theorem]{Proposition}
-\theoremstyle{definition}
-\newtheorem*{proposition*}{Proposition}
-
-\theoremstyle{definition}
-\newtheorem{claim}[theorem]{Claim}
-\theoremstyle{definition}
-\newtheorem*{claim*}{Claim}
-
-\theoremstyle{definition}
-\newtheorem{definition}[theorem]{সংজ্ঞা}
-\theoremstyle{definition}
-\newtheorem*{definition*}{সংজ্ঞা}
-
-\theoremstyle{definition}
-\newtheorem{problem}{প্রবলেম}[section]
-\theoremstyle{definition}
-\newtheorem*{problem*}{প্রবলেম}
-
-\theoremstyle{definition}
-\newtheorem{exercise}{অনুশীলনী}[section]
-\theoremstyle{definition}
-\newtheorem*{exercise*}{অনুশীলনী}
-
-\theoremstyle{definition}
-\newtheorem{example}{উদাহরণ}[section]
-\theoremstyle{definition}
-\newtheorem*{example*}{উদাহরণ}
 
 \newtheorem*{note*}{Note}
+
+
+% \setlength{\parindent}{0pt}
+\setlength{\parskip}{0.7ex}
 
 \begin{document}
 
