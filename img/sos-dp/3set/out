@@ -1,0 +1,29 @@
+
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{tikz}
+
+\begin{document}
+
+
+\def \globalscale {1.000000}
+\begin{tikzpicture}[y=0.80pt, x=0.80pt, yscale=-\globalscale, xscale=\globalscale, inner sep=0pt, outer sep=0pt]
+  \path[draw=black,fill=black,fill opacity=0.000,even odd rule,line width=0.320pt,miter limit=4.00] (25.0000,25.0000) circle (0.7012cm);
+
+
+
+  \path[draw=black,fill=black,fill opacity=0.000,even odd rule,line width=0.320pt,miter limit=4.00] (50.0000,25.0000) circle (0.7012cm);
+
+
+
+  \path[draw=black,fill=black,fill opacity=0.000,even odd rule,line width=0.320pt,miter limit=4.00] (37.5000,46.6500) circle (0.7012cm);
+
+
+
+  \path[scale=0.265,fill=black,fill opacity=0.319,even odd rule,line width=1.209pt,miter limit=4.00] (141.7363,13.3496)arc(239.796:180.009:93.901)arc(176.815:176.607:93.901)arc(240.204:269.986:93.901)arc(270.007:299.787:93.901)arc(3.463:3.260:93.901)arc(359.994:300.210:93.901) -- cycle(95.6758,104.8164)arc(172.160:169.530:93.901)arc(169.530:172.160:93.901) -- cycle(187.7871,104.8224)arc(7.840:10.436:93.901)arc(10.436:7.840:93.901) -- cycle(97.4043,115.0099)arc(166.322:163.443:93.901)arc(163.443:166.322:93.901) -- cycle(186.0586,115.0099)arc(13.664:16.533:93.901)arc(16.533:13.664:93.901) -- cycle(100.2441,124.9630)arc(160.412:157.483:93.901)arc(157.483:160.412:93.901) -- cycle(183.2168,124.9690)arc(19.600:22.516:93.901)arc(22.516:19.600:93.901) -- cycle(104.1738,134.5745)arc(154.432:151.500:93.901)arc(151.500:154.432:93.901) -- cycle(179.2812,134.5862)arc(25.537:28.436:93.901)arc(28.436:25.537:93.901) -- cycle(109.1465,143.7053)arc(148.470:145.577:93.901)arc(145.577:148.470:93.901) -- cycle(174.3066,143.7209)arc(31.546:34.429:93.901)arc(34.429:31.546:93.901) -- cycle(168.3106,152.3049)arc(37.522:40.304:93.901)arc(40.304:37.522:93.901) -- cycle(115.1562,152.3089)arc(142.470:139.683:93.901)arc(139.683:142.470:93.901) -- cycle(122.1582,160.2621)arc(136.423:133.797:93.901)arc(133.797:136.423:93.901) -- cycle(161.2832,160.2875)arc(43.591:46.186:93.901)arc(46.186:43.591:93.901) -- cycle(130.3027,167.6234)arc(130.256:128.034:93.901)arc(128.034:130.256:93.901) -- cycle(153.1406,167.6429)arc(49.759:51.963:93.901)arc(51.963:49.759:93.901) -- cycle;
+
+
+
+
+\end{tikzpicture}
+\end{document}

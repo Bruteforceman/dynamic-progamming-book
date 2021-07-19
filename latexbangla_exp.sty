@@ -58,16 +58,8 @@
 \def\@SolaimanLipi#1{
 	\ifcase#1{SolaimanLipi} %name
 	\or{0.9}                %Scale
-	\or{1.7}                %main WordSpace
+	\or{1.5}                %main WordSpace
 	\or{2.1}                %tt WordSpace
-	\else\fi
-}
-\def\@@AdarshaPro{AdarshaPro-regular}
-\def\@AdarshaPro#1{
-	\ifcase#1{AdarshaPro-regular} %name
-	\or{0.6}                %Scale
-	\or{0.6}                %main WordSpace
-	\or{0.6}                %tt WordSpace
 	\else\fi
 }
 
@@ -144,10 +136,14 @@
 
 %From polyglossia
 \ifchange@num
-	\setmainlanguage[changecounternumbering=false, numerals=Bengali]{bengali}
+	\setmainlanguage[numerals=Bengali, changecounternumbering=false]{bengali}
 \else
 	\setmainlanguage{bengali}
 \fi
+
+\def\bengalinumber#1{\bengalidigits{\number#1}}
+\def\bengalinumeral#1{\bengalinumber{\csname
+c@#1\endcsame}}
 
 \newfontfamily\bengalifont[%
 	Script=Bengali,%
@@ -193,7 +189,7 @@
 		\trivlist
 		\item[\hskip\labelsep
 		\itshape
-		#1\@addpunct{:}]\ignorespaces
+		#1\@addpunct{.}]\ignorespaces
 	}{%
 		\popQED\endtrivlist\@endpefalse
 
@@ -230,9 +226,9 @@
     \setcounter{bengalialph}{1}
     \renewcommand{\thebengalialph}{\tobenglaialph{bengalialph}}
 	%defining a \tobangla which converts numbers in any counter to bangla
-	% \def\@banglanumber#1{\expandafter\@@banglanumber\number#1\@nil}
-	% \def\@@banglanumber#1{\ifx#1\@nil
-	% \else\char\numexpr#1+"09E6\relax\expandafter\@@banglanumber\fi}
+	%\def\@banglanumber#1{\expandafter\@@banglanumber\number#1\@nil}
+	%\def\@@banglanumber#1{\ifx#1\@nil
+	%\else\char\numexpr#1+"09E6\relax\expandafter\@@banglanumber\fi}
 	\def\tobangla#1{\expandafter\bengalinumber\csname c@#1\endcsname}
 	\def\numtobangla#1{\bengalinumber#1\@nil}
 
@@ -240,15 +236,21 @@
 	\addto\captionsbengali{\renewcommand\proofname{\bfseries প্রমাণ}}
 
 	%a new solution environment
-	\newenvironment{solution}[1][সমাধান]{\proof[\bfseries #1]}{\endproof}
+	%\newenvironment{solution}[1][সমাধান]{\proof[\bfseries #1]}{\endproof}
+
+
+
+	% \newtheoremstyle{haha}{3pt}{3pt}{}{}{\bfseries}{:}{.5em}{\thmname{#3}\thmnumber{ #2}}
+		
+	% \theoremstyle{haha}
 	
-	%\newtheoremstyle{haha}{3pt}{3pt}{}{}{\bfseries}{:}{.5em}{}
+	\theoremstyle{definition}
+	\newtheorem*{solution}{সমাধান}
+
 	
-	%\theoremstyle{haha}
-	%\newtheorem*{solution}{সমাধান}
-	
-	
-	
+
+
+
 	\newtheoremstyle{custom}% name
 	{3pt}% space above
 	{3pt}% space below
@@ -258,10 +260,9 @@
 	{:}% punctuation after theorem head
 	{.5em}% space after theorem head
 	{}%{\thmname{#1}\thmnumber{ \normalfont#2}\thmnote{(#3)}}% theorem head spec
+	
 	\theoremstyle{custom}
 	%\newtheorem{example}{উদাহরণ}
-	
-	%\newtheorem*{solution}{সমাধান}
 
 	%converting all the useful counters not handled by polyglossia to bangla
 	\renewcommand{\theequation}{\thesection.\tobangla{equation}}
@@ -275,18 +276,19 @@
 %feature=2 enabes further modifiations as follows
 \if@full
 	\RequirePackage{titlesec, amsthm, xpatch, amsfonts, amssymb, amsmath, enumerate, chngcntr}
-	\theoremstyle{custom}
-	\newtheorem{corollary}{\bfseries অনুসিদ্ধান্ত}[section]
-	\newtheorem{property}{\bfseries বৈশিষ্ট্য}[section]
-	\newtheorem*{hint} {\bfseries হিন্ট}
-	\renewcommand{\thecorollary}{\thesection.\tobangla{corollary}}
-	\renewcommand{\theproperty}{\thesection.\tobangla{property}}
-	\addto\captionsbengali{\renewcommand\abstractname{সারসংক্ষেপ}}
+	% \theoremstyle{custom}
+	% \newtheorem{corollary}{\bfseries অনুসিদ্ধান্ত}[section]
+	% \newtheorem{property}{\bfseries বৈশিষ্ট্য}[section]
+	% \newtheorem*{hint} {\bfseries হিন্ট}
+	% \renewcommand{\thecorollary}{\thesection.\tobangla{corollary}}
+	% \renewcommand{\theproperty}{\thesection.\tobangla{property}}
+	% \addto\captionsbengali{\renewcommand\abstractname{সারসংক্ষেপ}}
 	\addto\captionsbengali{\renewcommand\bibname{\bfseries গ্রন্থসূত্র}}
 	\addto\captionsbengali{\renewcommand{\figurename}{চিত্র}}
-	\newenvironment{motive}{\proof[\bfseries মোটিভেশন]}{\phantom\qedhere\endproof}
+	% \newenvironment{motive}{\proof[\bfseries মোটিভেশন]}{\phantom\qedhere\endproof}
 	\def\equationautorefname~#1\null{(#1)\null}
 \fi
 	\addto\captionsbengali{\renewcommand{\figurename}{চিত্র}}
-	
+	\addto\captionsbengali{\renewcommand{\contentsname}{সূচি}}
+	\addto{\captionsbengali}{\renewcommand{\bibname}{তথ্যবিবরণী}}
 \endinput
