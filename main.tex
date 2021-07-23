@@ -6,6 +6,12 @@
 
 \usepackage[banglamainfont=SolaimanLipi, banglattfont=Siyam Rupali, feature=2]{latexbangla_exp}
 
+
+\usepackage{cite}
+% \usepackage{natbib}
+% \addto\captionsbengali{\renewcommand{\bibname}{তথ্যবিবরণী}}
+% \renewcommand{\bibname}{তথ্যবিবরণী}
+
 % \usepackage{polyglossia}
 % \setmainlanguage[numerals=Bengali,changecounternumbering=true]{bengali}
 % \newfontfamily\bengalifont[Script=Bengali, Scale=0.9, NFSSFamily=bmfont, WordSpace=1.5, AutoFakeSlant, AutoFakeBold]{SolaimanLipi}
@@ -108,7 +114,7 @@
 \newcommand{\three}[3]{[#1, #2, #3]}
 \newcommand{\four}[4]{[#1, #2, #3, #4]}
 \newcommand{\DP}{\text{dp}}
-\newcommand{\SOSfn}{\texttt{SOS}}
+% \newcommand{\SOSfn}{\texttt{SOS}}
 \newcommand{\compl}[1]{\overline{#1}}
 \newcommand{\ora}[1]{\overrightarrow{#1}}
 \newcommand{\abs}[1]{\left| #1 \right|}
@@ -179,7 +185,7 @@
 \newtheorem*{claim*}{Claim}
 
 \theoremstyle{definition}
-\newtheorem{definition}[theorem]{সংজ্ঞা} % wait, no, make this a child of theorem?
+\newtheorem{definition}{সংজ্ঞা}[chapter] % wait, no, make this a child of theorem?
 \theoremstyle{definition}
 \newtheorem*{definition*}{সংজ্ঞা}
 
@@ -257,10 +263,10 @@
 \part{বাছাইকৃত কিছু সমস্যার হিন্ট সমূহ}
 \input{hints}
 
-% \backmatter
+\backmatter
 
 % \nocite{*}
-% \bibliography{bookbib}
-% \bibliographystyle{plain}
+\bibliography{bibliography}
+\bibliographystyle{plain}
 
 \end{document}
