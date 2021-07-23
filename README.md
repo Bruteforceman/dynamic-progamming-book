@@ -13,7 +13,7 @@ xelatex main
 bibtex main
 ```
 
-after that, just run `xelatex main` once (or twice if you add new references).
+after that, just run `xelatex main` once (or twice if you've add new references).
 
 ### Syntax
 See [this](https://www.overleaf.com/learn/latex/Bibliography_management_with_bibtex#The_bibliography_file). Append entry in `bibliography.bib`. Cite using `\cite{label}`.
